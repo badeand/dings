@@ -11,28 +11,15 @@ extern "C" {
 #include "crypto/base64.h"
 }
 
-// #include <WebServer.h>
 
-// WiFi stuff
-// const char* ssid = "Bache";
-// const char* pwd = "71073826";
-
-
-// for ArduinoOSC
 OscWiFi osc;
-String host = "192.168.1.1";
 
-// i2c
 Adafruit_LSM9DS1 lsm;
-
 Preferences preferences;
-
 
 void setupWIFI();
 
-void printGyroDebug(const sensors_event_t &a);
-
-void debugGyro(const sensors_event_t &a, const sensors_event_t &m, const sensors_event_t &g);
+String host = "192.168.1.1";
 
 String base64decode(const String &name);
 
@@ -41,8 +28,6 @@ void configMode(const String &ssid);
 const int recv_port = 10000;
 const int send_port = 12000;
 
-// WebServer server(80);
-
 
 void initGyro() {
 
@@ -50,7 +35,6 @@ void initGyro() {
 
     lsm = Adafruit_LSM9DS1();
 
-    // Try to initialise and warn if we couldn't detect the chip
     if (!lsm.begin()) {
         Serial.println("Oops ... unable to initialize the LSM9DS1. Check your wiring!");
         while (1);
@@ -58,9 +42,7 @@ void initGyro() {
     Serial.println("Found LSM9DS1 9DOF");
 
     lsm.setupAccel(lsm.LSM9DS1_ACCELRANGE_2G);
-
     lsm.setupMag(lsm.LSM9DS1_MAGGAIN_4GAUSS);
-
     lsm.setupGyro(lsm.LSM9DS1_GYROSCALE_245DPS);
 }
 
@@ -86,17 +68,7 @@ void setup()
 
     initGyro();
 
-
-    // ArduinoOSC
     osc.begin(recv_port);
-
-    // TODO: TBD
-    // osc.subscribe("/int32", i);
-    // osc.subscribe("/float", f);
-    // osc.subscribe("/string", s);
-    // osc.subscribe("/blob", b);
-
-    osc.subscribe("/callback", onOscReceived); // old style (v0.1.x)
 
     osc.subscribe("/lambda", [](OscMessage& m)
     {
@@ -158,25 +130,12 @@ void setup()
         osc.send(host, send_port, "/send", i, f, d, s, b);
     });
 
-    // TODO: TBD
-    // osc.publish(host, send_port, "/value", value);
-    // osc.publish(host, send_port, "/millis", &millis);
 }
 
-/*
-void handle_OnConnect() {
-    Serial.println("onConnect");
-    Serial.print("server.arg(\"message\"):");
-    Serial.println(server.arg("message"));
-    server.send(200, "text/html", "OK");
-}
-*/
 
 void setupWIFI() {
 
     delay(1000);
-
-
 
     preferences.begin("dings01", false);
     String name = preferences.getString("name", String("not set"));
@@ -230,47 +189,18 @@ void configMode(const String &ssid) {
     Serial.println(ssid);
     Serial.println("Entering configuration mode");
 
-    // WiFi.mode(WIFI_AP);
-
     String apssid = "esp" + String(random(999));
     Serial.println("Setting up AP with SSID="+apssid);
     WiFi.softAP(apssid.c_str());
     IPAddress IP = WiFi.softAPIP();
     Serial.print("AP IP address: ");
     Serial.println(IP);
-    /*
-IPAddress local_ip(192,168,1,1);
-IPAddress gateway(192,168,1,1);
-IPAddress subnet(255,255,255,0);
-WiFi.softAPConfig(local_ip, gateway, subnet);
-WiFi.begin();
-*/
 
     Serial.println("AP setup complete");
-
-    // server.on("/", handle_OnConnect);
-
-    // ArduinoOSC
     osc.begin(recv_port);
-
-    // TODO: TBD
-// osc.subscribe("/int32", i);
-// osc.subscribe("/float", f);
-// osc.subscribe("/string", s);
-// osc.subscribe("/blob", b);
-
-    /*
-if (!MDNS.begin("esp32")) {
-Serial.println("Error setting up MDNS responder!");
-} else {
-Serial.println("OK setting up MDNS responder!");
-}
-*/
 
     osc.subscribe("/ping", [](OscMessage& m)
     {
-        Serial.print("lambda : ");
-
         Serial.print(m.ip()); Serial.print(" ");
         Serial.print(m.port()); Serial.print(" ");
         Serial.print(m.size()); Serial.print(" ");
@@ -308,11 +238,8 @@ Serial.println("OK setting up MDNS responder!");
         preferences.putString("name", base64decode(name));
         preferences.putString("ssid", base64decode(ssid));
         preferences.putString("pwd", base64decode(pwd));
-
         preferences.putInt("rport", rport);
         preferences.putInt("sport", sport);
-
-
 
         Serial.print("Preferences : ");
         Serial.print("name=");Serial.print(preferences.getString("name", String("not set"))); Serial.print(" , ");
@@ -325,20 +252,13 @@ Serial.println("OK setting up MDNS responder!");
 
         preferences.end();
 
-
         osc.send(m.ip(), send_port, "/setconfigerr", 0);
     });
 
 
-
-    // server.begin();
-// Serial.println("HTTP server started");
-
     while( true) {
-       // server.handleClient();
         delay(10);
         osc.parse(); // should be called
-        // Serial.print(".");
     }
 }
 
@@ -355,7 +275,7 @@ String base64decode(const String &name) {
 
 void loop()
 {
-    osc.parse(); // should be called
+    osc.parse();
 
     lsm.read();  /* ask it to read in the data */
 

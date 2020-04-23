@@ -54,8 +54,6 @@ function msg_int(v)
 {
 
 		var a = arrayfromargs(messagename, arguments);
-	post("received INT " + a + "\n");
-	post("btoa " + base64_encode(a) + "\n");
 	myval = base64_encode(a);
 	bang();
 	
@@ -81,8 +79,6 @@ function list()
 function anything()
 {
 	var a = arrayfromargs(messagename, arguments);
-	post("received message " + a + "\n");
-	post("btoa " + base64_encode(a) + "\n");
 	myval = base64_encode(a);
 	bang();
 }

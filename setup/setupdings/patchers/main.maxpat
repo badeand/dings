@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 994.0, 79.0, 416.0, 1049.0 ],
+		"rect" : [ 488.0, 79.0, 922.0, 1049.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -38,6 +38,18 @@
 		"style" : "",
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-19",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 591.0, 41.0, 89.0, 22.0 ],
+					"text" : "sprintf %s.local"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-41",
 					"maxclass" : "message",
@@ -69,7 +81,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 164.0, 19.5, 81.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"text" : "/lambda 1 2 3"
 				}
 
@@ -118,7 +129,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 59.0, 346.0, 98.0, 35.0 ],
-					"text" : "ZGluZ3MwMQ=="
+					"text" : "ZXNwMzIAAA=="
 				}
 
 			}
@@ -371,13 +382,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-56",
-					"linecount" : 3,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 133.0, 399.5, 233.0, 49.0 ],
-					"text" : "/setconfig ZGluZ3MwMQ== QmFjaGUAAA== NzEwNzM4MjYAAA== 10000 12000"
+					"patching_rect" : [ 133.0, 399.5, 233.0, 22.0 ],
+					"text" : "/setconfig ZXNwMzIAAA== 0 0"
 				}
 
 			}
@@ -404,12 +414,12 @@
 					"patching_rect" : [ 592.0, 189.25, 44.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_type" : 0,
-							"parameter_unitstyle" : 0,
-							"parameter_mmin" : 1025.0,
 							"parameter_longname" : "live.numbox[1]",
 							"parameter_mmax" : 900000.0,
-							"parameter_shortname" : "live.numbox"
+							"parameter_shortname" : "live.numbox",
+							"parameter_type" : 0,
+							"parameter_unitstyle" : 0,
+							"parameter_mmin" : 1025.0
 						}
 
 					}
@@ -429,12 +439,12 @@
 					"patching_rect" : [ 519.0, 189.25, 44.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_type" : 0,
-							"parameter_unitstyle" : 0,
-							"parameter_mmin" : 1025.0,
 							"parameter_longname" : "live.numbox",
 							"parameter_mmax" : 900000.0,
-							"parameter_shortname" : "live.numbox"
+							"parameter_shortname" : "live.numbox",
+							"parameter_type" : 0,
+							"parameter_unitstyle" : 0,
+							"parameter_mmin" : 1025.0
 						}
 
 					}
@@ -522,7 +532,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 340.000001132488251, 637.5, 150.0, 20.0 ],
-					"text" : "found device"
+					"text" : "searching"
 				}
 
 			}
@@ -738,7 +748,19 @@
 					"outlettype" : [ "", "int", "", "" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 170.0, 185.5, 109.5, 22.5 ],
-					"text" : "dings01"
+					"text" : "esp32"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-9",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 462.0, 41.5, 50.0, 22.0 ],
+					"text" : "host $1"
 				}
 
 			}
@@ -816,6 +838,13 @@
 					"destination" : [ "obj-21", 1 ],
 					"order" : 0,
 					"source" : [ "obj-17", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-9", 0 ],
+					"source" : [ "obj-19", 0 ]
 				}
 
 			}
@@ -984,7 +1013,16 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-19", 0 ],
+					"order" : 0,
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-25", 0 ],
+					"order" : 1,
 					"source" : [ "obj-5", 0 ]
 				}
 
@@ -1090,6 +1128,13 @@
 				}
 
 			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-37", 0 ],
+					"source" : [ "obj-9", 0 ]
+				}
+
+			}
  ],
 		"parameters" : 		{
 			"obj-7" : [ "live.numbox[1]", "live.numbox", 0 ],
@@ -1102,8 +1147,8 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "base64.js",
-				"bootpath" : "~/temp",
-				"patcherrelativepath" : ".",
+				"bootpath" : "~/dev/dings/setup/setupdings/code",
+				"patcherrelativepath" : "../code",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
