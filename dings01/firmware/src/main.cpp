@@ -143,20 +143,14 @@ void setupWIFI() {
     String pwd = preferences.getString("pwd", String("not set"));
     preferences.end();
 
-
-    Serial.print("name=");
-    Serial.print(name); Serial.print(" , ");
-    Serial.print("ssid=");
-    Serial.print(ssid); Serial.print(" , ");
-    Serial.print("pwd=");
-    Serial.print(pwd); Serial.print(" , ");
+    Serial.print("name="); Serial.print(name); Serial.print(" , ");
+    Serial.print("ssid="); Serial.print(ssid); Serial.print(" , ");
+    Serial.print("pwd="); Serial.print("******"); Serial.print(" , ");
     Serial.print("rport=");Serial.print(preferences.getInt("rport", -1)); Serial.print(" , ");
     Serial.print("sport=");Serial.print(preferences.getInt("sport", -1)); Serial.print(" , ");
 
+    Serial.print("Connecting to WiFi. ssid="); Serial.println(ssid);
 
-    Serial.print("Connecting to WiFi. ssid=");
-    Serial.print(ssid);
-    Serial.println();
     WiFi.begin(
             ssid.c_str(),
             pwd.c_str()
@@ -171,17 +165,17 @@ void setupWIFI() {
             configMode(ssid);
         }
     }
-    Serial.println("");
-    Serial.println("Connected to WiFi!");
-    Serial.println(WiFi.localIP());
 
-    if (!MDNS.begin("esp32")) {
-        Serial.println("Error setting up MDNS responder!");
+    Serial.print("Connecting to WiFi. IP="); Serial.println(WiFi.localIP());
+
+    if (!MDNS.begin(name.c_str())) {
+        Serial.println("Unable to set up MSDN");
         while(1) {
             delay(1000);
         }
     }
 
+    Serial.print("MSDN setup OK. name="); Serial.print(name); Serial.println(".local");
 }
 
 void configMode(const String &ssid) {
@@ -189,7 +183,7 @@ void configMode(const String &ssid) {
     Serial.println(ssid);
     Serial.println("Entering configuration mode");
 
-    String apssid = "esp" + String(random(999));
+    String apssid = "dings01_" + String(random(999));
     Serial.println("Setting up AP with SSID="+apssid);
     WiFi.softAP(apssid.c_str());
     IPAddress IP = WiFi.softAPIP();
