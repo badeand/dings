@@ -1,0 +1,46 @@
+@startuml
+
+digraph Q {
+
+  rankdir=LR
+  node [style=rounded, shape=box, width=1, height=1, style=filled, fontname="Courier"]
+
+  gyro -> cpu [label="I2C", fontname="Courier"]
+  cpu -> wifi
+  wifi -> m4l [label="OSC" dir=both, fontname="Courier"]
+  m4l -> effect [label="Live mapping", fontname="Courier"]
+  m4l -> synth [label="MIDI notes", fontname="Courier"]
+
+  subgraph cluster_dings01 {
+    fontname="Courier"
+    label="dings01"
+    bgcolor=bisque
+    fontsize="20"
+
+    gyro [label="Gyroscope"];
+
+    subgraph cluster_esp32  {
+      label="ESP32"
+      fontname="Courier"
+      fontsize="20"
+      bgcolor=cornsilk
+
+      cpu [label="CPU"];
+      wifi  [label="WiFi"];
+    }
+  }
+
+  subgraph cluster_computer {
+      fontname="Courier"
+      label="Ableton Live"
+      bgcolor=lavender
+      fontsize="20"
+
+      m4l [bgcolor=yellow label="Max\n4 Live"];
+      effect [label="Synth\nor effect"];
+      synth [label="Synth\nor effect"];
+  }
+
+}
+
+@enduml
