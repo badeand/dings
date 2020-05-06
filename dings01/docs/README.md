@@ -14,7 +14,8 @@ Løsningen fungerer slik:
 - mikrokontrolleren har tilkobling til nett via wifi
 - [OSC](https://en.wikipedia.org/wiki/Open_Sound_Control) brukes (nettverksprotkoll) for å kommunisere mellom maskin og dings
 - En max for live device brukes for å kommunisere mellom Ableton Live og tingen
-- Man kan velge hvilke måleverdier fra gyroskopet som skal styre hvilke parameterere på i Ableton Live 
+- Man kan velge hvilke måleverdier fra gyroskopet som skal styre hvilke parameterere på i Ableton
+ Live 
 
 ![components](./diagrams/components.png)
 
