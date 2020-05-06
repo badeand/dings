@@ -1,5 +1,6 @@
 # dings01
 
+Project status: **Under development**
 
 Dings01 is a tangible thing and accompanying software I created to explore human-machine interaction to control musical instruments.
 
