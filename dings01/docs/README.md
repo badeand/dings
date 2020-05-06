@@ -1,29 +1,32 @@
 # dings01
 
-Dings01 er en ting jeg har laget for å utforske interaksjon mellom menneske og maskin for å styre musikkinstrumenter.
 
-Dings01 leser av bevegelsene du gjør med den den og oversetter de til kontrollsignaler som kan kan styre digitale musikkinstrumenter og effekter. Et gyroskop måler bevegelsene og vinklene til tingen. Disse verdiene oversettes til parametere på en synth eller effekt. Dings01 kan brukes til å skape lydlandskaper og generere melodier.
+Dings01 is a tangible thing and accompanying software I created to explore human-machine interaction to control musical instruments.
 
-Dings01 består fysisk av:
- - Mikrokontroller
- - Gyroskop
- - Batteri
+Dings01 detects movements you do with it and translates them into control signals that can control digital musical instruments and effects. A gyroscope measures the change in and angles of the thing. These values ​​get translated into parameters of a synth or effect. Dings01 can be used to create sound landscapes and generate melodies.
 
-Løsningen fungerer slik:
-- En mikrontroller (ESP32) leser av verdiene på gyroskopet
-- mikrokontrolleren har tilkobling til nett via wifi
-- [OSC](https://en.wikipedia.org/wiki/Open_Sound_Control) brukes (nettverksprotkoll) for å kommunisere mellom maskin og dings
-- En max for live device brukes for å kommunisere mellom Ableton Live og tingen
-- Man kan velge hvilke måleverdier fra gyroskopet som skal styre hvilke parameterere på i Ableton
- Live 
+Dings01 physically consists of:
+- a microcontroller
+- a gyroscope
+- a battery
+- a few wires
+- a shell
+
+In overview, it works like this:
+- A microcontroller (ESP32) reads the values ​​on the gyroscope
+- the microcontroller connects to the internet via Wi-Fi
+- [OSC](https://en.wikipedia.org/wiki/Open_Sound_Control) is used to communicate between computer and dings01
+- a max for live device communicates between Ableton Live and the thing
+
+You can choose which measurement values ​​from the gyroscope should translate to which parameters on Ableton Live
 
 ![components](./diagrams/components.png)
 
-Dings01 kan kan sende både noter og kontrollsignaler. Man kan velge hvilke avlesninger som skal generere MIDI- noter.
+Dings01 may send both notes and control signals. You can choose a threshold of readings to generate MIDI notes.
 
-Innstillinger til trådløst nett lagres i minnet på mikrokontrolleren. Det er laget et eget program for å sette innstillinger for trådløst nett. Dersom mikrokontroller ikke får koblet seg til wifi- nett, går den automatisk inn i konfigurasjonsmodus slik at man kan sette korrekte instillinger.
+Wireless network settings are stored in the memory of the microcontroller. A dedicated application has been created to set wireless network settings. If the microcontroller can not connect to the Wi-Fi network, it automatically enters configuration mode so that you can set the correct settings.
 
-En av hensiktene med dings01 var å eksperimentere med hvor god responstiden fra bevegelse til endring i lyd i Ableton Live  er og og utforske hvilke innstillinger det kan være interessant å styre med et gyroskop.
+One of the purposes of dings01 was to experiment with latency from motion to change in sound in Ableton Live, and also to explore which settings it might be interesting to control with a gyroscope.
 
 
 ## Hardware
