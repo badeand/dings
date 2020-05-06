@@ -2,12 +2,17 @@
 
 Dings01 er en ting jeg har laget for å utforske interaksjon mellom menneske og maskin for å styre musikkinstrumenter.
 
-Dings01 leser av bevegelsene du gjør med den den og oversetter de til kontrollsignaler som kan kan styre digitale musikkinstrumenter og effekter. Et gyroskop måler bevegelsene og vinklene til tingen som oversettes til parametere på en synth eller effekt. Dings01 kan brukes til å skape lydlandskaper og generere melodier.
+Dings01 leser av bevegelsene du gjør med den den og oversetter de til kontrollsignaler som kan kan styre digitale musikkinstrumenter og effekter. Et gyroskop måler bevegelsene og vinklene til tingen. Disse verdiene oversettes til parametere på en synth eller effekt. Dings01 kan brukes til å skape lydlandskaper og generere melodier.
+
+Dings01 består fysisk av:
+ - Mikrokontroller
+ - Gyroskop
+ - Batteri
 
 Løsningen fungerer slik:
 - En mikrontroller (ESP32) leser av verdiene på gyroskopet
 - mikrokontrolleren har tilkobling til nett via wifi
-- OSC brukes (nettverksprotkoll) for å kommunisere mellom maskin og dings
+- [OSC](https://en.wikipedia.org/wiki/Open_Sound_Control) brukes (nettverksprotkoll) for å kommunisere mellom maskin og dings
 - En max for live device brukes for å kommunisere mellom Ableton Live og tingen
 - Man kan velge hvilke måleverdier fra gyroskopet som skal styre hvilke parameterere på i Ableton Live 
 
