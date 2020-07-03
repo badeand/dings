@@ -1,0 +1,763 @@
+EESchema Schematic File Version 4
+LIBS:dings02_pcb-cache
+EELAYER 29 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L power:GND #PWR0101
+U 1 1 5ECBD29C
+P 850 7350
+F 0 "#PWR0101" H 850 7100 50  0001 C CNN
+F 1 "GND" H 855 7177 50  0000 C CNN
+F 2 "" H 850 7350 50  0001 C CNN
+F 3 "" H 850 7350 50  0001 C CNN
+	1    850  7350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+6V #PWR0102
+U 1 1 5ECBD6CE
+P 750 800
+F 0 "#PWR0102" H 750 650 50  0001 C CNN
+F 1 "+6V" H 765 973 50  0000 C CNN
+F 2 "" H 750 800 50  0001 C CNN
+F 3 "" H 750 800 50  0001 C CNN
+	1    750  800 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 5ECBFE63
+P 2050 2700
+F 0 "R1" H 2120 2746 50  0000 L CNN
+F 1 "2200" H 2120 2655 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 1980 2700 50  0001 C CNN
+F 3 "~" H 2050 2700 50  0001 C CNN
+	1    2050 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L Transistor_BJT:TIP120 Q1
+U 1 1 5ECBDE55
+P 1850 2350
+F 0 "Q1" H 2057 2396 50  0000 L CNN
+F 1 "TIP120" H 2057 2305 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 2050 2275 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/TI/TIP120.pdf" H 1850 2350 50  0001 L CNN
+	1    1850 2350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J1
+U 1 1 5ECCFB81
+P 1550 2100
+F 0 "J1" H 1468 1775 50  0000 C CNN
+F 1 "S2" H 1468 1866 50  0001 C CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00001_1x02_P5.00mm_Horizontal" H 1550 2100 50  0001 C CNN
+F 3 "~" H 1550 2100 50  0001 C CNN
+	1    1550 2100
+	-1   0    0    1   
+$EndComp
+$Comp
+L MCU_Microchip_ATmega:ProMicro U1
+U 1 1 5ED09680
+P 5450 5450
+F 0 "U1" H 5450 6593 60  0000 C CNN
+F 1 "ProMicro" H 5450 6487 60  0000 C CNN
+F 2 "Module:ProMicro" H 5450 6381 60  0000 C CNN
+F 3 "" H 5550 4400 60  0000 C CNN
+	1    5450 5450
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2050 2350 2050 2550
+Wire Wire Line
+	1750 2100 1750 2150
+Wire Wire Line
+	2500 2100 2500 2150
+Wire Wire Line
+	2800 2350 2800 2550
+$Comp
+L Connector:Screw_Terminal_01x02 J2
+U 1 1 5ECD2308
+P 2300 2100
+F 0 "J2" H 2218 1775 50  0000 C CNN
+F 1 "S2" H 2218 1866 50  0001 C CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00001_1x02_P5.00mm_Horizontal" H 2300 2100 50  0001 C CNN
+F 3 "~" H 2300 2100 50  0001 C CNN
+	1    2300 2100
+	-1   0    0    1   
+$EndComp
+$Comp
+L Transistor_BJT:TIP120 Q2
+U 1 1 5ECD2302
+P 2600 2350
+F 0 "Q2" H 2807 2396 50  0000 L CNN
+F 1 "TIP120" H 2807 2305 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 2800 2275 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/TI/TIP120.pdf" H 2600 2350 50  0001 L CNN
+	1    2600 2350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 5ECD22FC
+P 2800 2700
+F 0 "R2" H 2870 2746 50  0000 L CNN
+F 1 "2200" H 2870 2655 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 2730 2700 50  0001 C CNN
+F 3 "~" H 2800 2700 50  0001 C CNN
+	1    2800 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 5ECDE961
+P 3500 2700
+F 0 "R3" H 3570 2746 50  0000 L CNN
+F 1 "2200" H 3570 2655 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 3430 2700 50  0001 C CNN
+F 3 "~" H 3500 2700 50  0001 C CNN
+	1    3500 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L Transistor_BJT:TIP120 Q3
+U 1 1 5ECDE967
+P 3300 2350
+F 0 "Q3" H 3507 2396 50  0000 L CNN
+F 1 "TIP120" H 3507 2305 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 3500 2275 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/TI/TIP120.pdf" H 3300 2350 50  0001 L CNN
+	1    3300 2350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J3
+U 1 1 5ECDE96D
+P 3000 2100
+F 0 "J3" H 2918 1775 50  0000 C CNN
+F 1 "S2" H 2918 1866 50  0001 C CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00001_1x02_P5.00mm_Horizontal" H 3000 2100 50  0001 C CNN
+F 3 "~" H 3000 2100 50  0001 C CNN
+	1    3000 2100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3500 2350 3500 2550
+Wire Wire Line
+	3200 2100 3200 2150
+Wire Wire Line
+	3950 2100 3950 2150
+Wire Wire Line
+	4250 2350 4250 2550
+$Comp
+L Connector:Screw_Terminal_01x02 J4
+U 1 1 5ECDE97A
+P 3750 2100
+F 0 "J4" H 3668 1775 50  0000 C CNN
+F 1 "S2" H 3668 1866 50  0001 C CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00001_1x02_P5.00mm_Horizontal" H 3750 2100 50  0001 C CNN
+F 3 "~" H 3750 2100 50  0001 C CNN
+	1    3750 2100
+	-1   0    0    1   
+$EndComp
+$Comp
+L Transistor_BJT:TIP120 Q4
+U 1 1 5ECDE980
+P 4050 2350
+F 0 "Q4" H 4257 2396 50  0000 L CNN
+F 1 "TIP120" H 4257 2305 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 4250 2275 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/TI/TIP120.pdf" H 4050 2350 50  0001 L CNN
+	1    4050 2350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:R R4
+U 1 1 5ECDE986
+P 4250 2700
+F 0 "R4" H 4320 2746 50  0000 L CNN
+F 1 "2200" H 4320 2655 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 4180 2700 50  0001 C CNN
+F 3 "~" H 4250 2700 50  0001 C CNN
+	1    4250 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R5
+U 1 1 5ECE1D68
+P 5000 2700
+F 0 "R5" H 5070 2746 50  0000 L CNN
+F 1 "2200" H 5070 2655 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 4930 2700 50  0001 C CNN
+F 3 "~" H 5000 2700 50  0001 C CNN
+	1    5000 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L Transistor_BJT:TIP120 Q5
+U 1 1 5ECE1D6E
+P 4800 2350
+F 0 "Q5" H 5007 2396 50  0000 L CNN
+F 1 "TIP120" H 5007 2305 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 5000 2275 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/TI/TIP120.pdf" H 4800 2350 50  0001 L CNN
+	1    4800 2350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J5
+U 1 1 5ECE1D74
+P 4500 2100
+F 0 "J5" H 4418 1775 50  0000 C CNN
+F 1 "S2" H 4418 1866 50  0001 C CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00001_1x02_P5.00mm_Horizontal" H 4500 2100 50  0001 C CNN
+F 3 "~" H 4500 2100 50  0001 C CNN
+	1    4500 2100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5000 2350 5000 2550
+Wire Wire Line
+	4700 2100 4700 2150
+Wire Wire Line
+	5450 2100 5450 2150
+Wire Wire Line
+	5750 2350 5750 2550
+$Comp
+L Connector:Screw_Terminal_01x02 J6
+U 1 1 5ECE1D81
+P 5250 2100
+F 0 "J6" H 5168 1775 50  0000 C CNN
+F 1 "S2" H 5168 1866 50  0001 C CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00001_1x02_P5.00mm_Horizontal" H 5250 2100 50  0001 C CNN
+F 3 "~" H 5250 2100 50  0001 C CNN
+	1    5250 2100
+	-1   0    0    1   
+$EndComp
+$Comp
+L Transistor_BJT:TIP120 Q6
+U 1 1 5ECE1D87
+P 5550 2350
+F 0 "Q6" H 5757 2396 50  0000 L CNN
+F 1 "TIP120" H 5757 2305 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 5750 2275 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/TI/TIP120.pdf" H 5550 2350 50  0001 L CNN
+	1    5550 2350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:R R6
+U 1 1 5ECE1D8D
+P 5750 2700
+F 0 "R6" H 5820 2746 50  0000 L CNN
+F 1 "2200" H 5820 2655 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 5680 2700 50  0001 C CNN
+F 3 "~" H 5750 2700 50  0001 C CNN
+	1    5750 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L Transistor_BJT:TIP120 Q7
+U 1 1 5ECE636B
+P 6250 2350
+F 0 "Q7" H 6457 2396 50  0000 L CNN
+F 1 "TIP120" H 6457 2305 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 6450 2275 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/TI/TIP120.pdf" H 6250 2350 50  0001 L CNN
+	1    6250 2350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J7
+U 1 1 5ECE6371
+P 5950 2100
+F 0 "J7" H 5868 1775 50  0000 C CNN
+F 1 "J7" H 5868 1866 50  0001 C CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00001_1x02_P5.00mm_Horizontal" H 5950 2100 50  0001 C CNN
+F 3 "~" H 5950 2100 50  0001 C CNN
+	1    5950 2100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6450 2350 6450 2550
+Wire Wire Line
+	6150 2100 6150 2150
+Wire Wire Line
+	6900 2100 6900 2150
+Wire Wire Line
+	7200 2350 7200 2550
+$Comp
+L Connector:Screw_Terminal_01x02 J8
+U 1 1 5ECE637E
+P 6700 2100
+F 0 "J8" H 6618 1775 50  0000 C CNN
+F 1 "S2" H 6618 1866 50  0001 C CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00001_1x02_P5.00mm_Horizontal" H 6700 2100 50  0001 C CNN
+F 3 "~" H 6700 2100 50  0001 C CNN
+	1    6700 2100
+	-1   0    0    1   
+$EndComp
+$Comp
+L Transistor_BJT:TIP120 Q8
+U 1 1 5ECE6384
+P 7000 2350
+F 0 "Q8" H 7207 2396 50  0000 L CNN
+F 1 "TIP120" H 7207 2305 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 7200 2275 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/TI/TIP120.pdf" H 7000 2350 50  0001 L CNN
+	1    7000 2350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:R R8
+U 1 1 5ECE638A
+P 7200 2700
+F 0 "R8" H 7270 2746 50  0000 L CNN
+F 1 "2200" H 7270 2655 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 7130 2700 50  0001 C CNN
+F 3 "~" H 7200 2700 50  0001 C CNN
+	1    7200 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R9
+U 1 1 5ED0C2BF
+P 7950 2700
+F 0 "R9" H 8020 2746 50  0000 L CNN
+F 1 "2200" H 8020 2655 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 7880 2700 50  0001 C CNN
+F 3 "~" H 7950 2700 50  0001 C CNN
+	1    7950 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L Transistor_BJT:TIP120 Q9
+U 1 1 5ED0C2C5
+P 7750 2350
+F 0 "Q9" H 7957 2396 50  0000 L CNN
+F 1 "TIP120" H 7957 2305 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 7950 2275 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/TI/TIP120.pdf" H 7750 2350 50  0001 L CNN
+	1    7750 2350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J9
+U 1 1 5ED0C2CB
+P 7450 2100
+F 0 "J9" H 7368 1775 50  0000 C CNN
+F 1 "S2" H 7368 1866 50  0001 C CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00001_1x02_P5.00mm_Horizontal" H 7450 2100 50  0001 C CNN
+F 3 "~" H 7450 2100 50  0001 C CNN
+	1    7450 2100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7950 2350 7950 2550
+Wire Wire Line
+	7650 2100 7650 2150
+Wire Wire Line
+	8400 2100 8400 2150
+Wire Wire Line
+	8700 2350 8700 2550
+$Comp
+L Connector:Screw_Terminal_01x02 J10
+U 1 1 5ED0C2D5
+P 8200 2100
+F 0 "J10" H 8118 1775 50  0000 C CNN
+F 1 "S2" H 8118 1866 50  0001 C CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00001_1x02_P5.00mm_Horizontal" H 8200 2100 50  0001 C CNN
+F 3 "~" H 8200 2100 50  0001 C CNN
+	1    8200 2100
+	-1   0    0    1   
+$EndComp
+$Comp
+L Transistor_BJT:TIP120 Q10
+U 1 1 5ED0C2DB
+P 8500 2350
+F 0 "Q10" H 8707 2396 50  0000 L CNN
+F 1 "TIP120" H 8707 2305 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 8700 2275 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/TI/TIP120.pdf" H 8500 2350 50  0001 L CNN
+	1    8500 2350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:R R10
+U 1 1 5ED0C2E1
+P 8700 2700
+F 0 "R10" H 8770 2746 50  0000 L CNN
+F 1 "2200" H 8770 2655 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 8630 2700 50  0001 C CNN
+F 3 "~" H 8700 2700 50  0001 C CNN
+	1    8700 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L Transistor_BJT:TIP120 Q11
+U 1 1 5ED0C2ED
+P 9200 2350
+F 0 "Q11" H 9407 2396 50  0000 L CNN
+F 1 "TIP120" H 9407 2305 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 9400 2275 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/TI/TIP120.pdf" H 9200 2350 50  0001 L CNN
+	1    9200 2350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J11
+U 1 1 5ED0C2F3
+P 8900 2100
+F 0 "J11" H 8818 1775 50  0000 C CNN
+F 1 "S2" H 8818 1866 50  0001 C CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00001_1x02_P5.00mm_Horizontal" H 8900 2100 50  0001 C CNN
+F 3 "~" H 8900 2100 50  0001 C CNN
+	1    8900 2100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	9400 2350 9400 2550
+Wire Wire Line
+	9100 2100 9100 2150
+Wire Wire Line
+	9850 2100 9850 2150
+Wire Wire Line
+	10150 2350 10150 2550
+$Comp
+L Connector:Screw_Terminal_01x02 J12
+U 1 1 5ED0C2FF
+P 9650 2100
+F 0 "J12" H 9568 1775 50  0000 C CNN
+F 1 "S2" H 9568 1866 50  0001 C CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00001_1x02_P5.00mm_Horizontal" H 9650 2100 50  0001 C CNN
+F 3 "~" H 9650 2100 50  0001 C CNN
+	1    9650 2100
+	-1   0    0    1   
+$EndComp
+$Comp
+L Transistor_BJT:TIP120 Q12
+U 1 1 5ED0C305
+P 9950 2350
+F 0 "Q12" H 10157 2396 50  0000 L CNN
+F 1 "TIP120" H 10157 2305 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 10150 2275 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/TI/TIP120.pdf" H 9950 2350 50  0001 L CNN
+	1    9950 2350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:R R12
+U 1 1 5ED0C30B
+P 10150 2700
+F 0 "R12" H 10220 2746 50  0000 L CNN
+F 1 "2200" H 10220 2655 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 10080 2700 50  0001 C CNN
+F 3 "~" H 10150 2700 50  0001 C CNN
+	1    10150 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R7
+U 1 1 5ECE6365
+P 6450 2700
+F 0 "R7" H 6520 2746 50  0000 L CNN
+F 1 "2200" H 6520 2655 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 6380 2700 50  0001 C CNN
+F 3 "~" H 6450 2700 50  0001 C CNN
+	1    6450 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R11
+U 1 1 5ED0C2E7
+P 9400 2700
+F 0 "R11" H 9470 2746 50  0000 L CNN
+F 1 "2200" H 9470 2655 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal" V 9330 2700 50  0001 C CNN
+F 3 "~" H 9400 2700 50  0001 C CNN
+	1    9400 2700
+	-1   0    0    1   
+$EndComp
+NoConn ~ 7750 2400
+Wire Wire Line
+	9850 2550 9850 3100
+Wire Wire Line
+	9850 3100 9100 3100
+Wire Wire Line
+	1750 2550 1750 3100
+Connection ~ 1750 3100
+Wire Wire Line
+	1750 3100 850  3100
+Wire Wire Line
+	2500 2550 2500 3100
+Connection ~ 2500 3100
+Wire Wire Line
+	2500 3100 1750 3100
+Wire Wire Line
+	3200 2550 3200 3100
+Connection ~ 3200 3100
+Wire Wire Line
+	3200 3100 2500 3100
+Wire Wire Line
+	3950 2550 3950 3100
+Connection ~ 3950 3100
+Wire Wire Line
+	3950 3100 3200 3100
+Wire Wire Line
+	4700 2550 4700 3100
+Connection ~ 4700 3100
+Wire Wire Line
+	4700 3100 3950 3100
+Wire Wire Line
+	5450 2550 5450 3100
+Connection ~ 5450 3100
+Wire Wire Line
+	5450 3100 4700 3100
+Wire Wire Line
+	6150 2550 6150 3100
+Connection ~ 6150 3100
+Wire Wire Line
+	6150 3100 5450 3100
+Wire Wire Line
+	6900 2550 6900 3100
+Connection ~ 6900 3100
+Wire Wire Line
+	6900 3100 6150 3100
+Wire Wire Line
+	7650 2550 7650 3100
+Connection ~ 7650 3100
+Wire Wire Line
+	7650 3100 6900 3100
+Wire Wire Line
+	8400 2550 8400 3100
+Connection ~ 8400 3100
+Wire Wire Line
+	8400 3100 7650 3100
+Wire Wire Line
+	9100 2550 9100 3100
+Connection ~ 9100 3100
+Wire Wire Line
+	9100 3100 8400 3100
+Wire Wire Line
+	6150 5600 7250 5600
+Wire Wire Line
+	7250 5600 7250 3350
+Wire Wire Line
+	7250 3350 2050 3350
+Wire Wire Line
+	2050 3350 2050 2850
+Wire Wire Line
+	6150 5500 7150 5500
+Wire Wire Line
+	7150 5500 7150 3450
+Wire Wire Line
+	7150 3450 2800 3450
+Wire Wire Line
+	2800 3450 2800 2850
+Wire Wire Line
+	3500 2850 3500 3550
+Wire Wire Line
+	3500 3550 7050 3550
+Wire Wire Line
+	7050 3550 7050 5400
+Wire Wire Line
+	7050 5400 6150 5400
+Wire Wire Line
+	6150 5300 6950 5300
+Wire Wire Line
+	6950 5300 6950 3650
+Wire Wire Line
+	6950 3650 4250 3650
+Wire Wire Line
+	4250 3650 4250 2850
+Wire Wire Line
+	5000 2850 5000 3750
+Wire Wire Line
+	5000 3750 6850 3750
+Wire Wire Line
+	6850 3750 6850 5200
+Wire Wire Line
+	6850 5200 6150 5200
+Wire Wire Line
+	5750 2850 5750 3850
+Wire Wire Line
+	5750 3850 6750 3850
+Wire Wire Line
+	6750 3850 6750 5100
+Wire Wire Line
+	6750 5100 6150 5100
+Wire Wire Line
+	4750 5800 3250 5800
+Wire Wire Line
+	3250 5800 3250 3950
+Wire Wire Line
+	3250 3950 6450 3950
+Wire Wire Line
+	6450 3950 6450 2850
+Wire Wire Line
+	4750 5700 3400 5700
+Wire Wire Line
+	3400 5700 3400 4100
+Wire Wire Line
+	3400 4100 7350 4100
+Wire Wire Line
+	7350 4100 7350 3200
+Wire Wire Line
+	7350 3200 7200 3200
+Wire Wire Line
+	7200 3200 7200 2850
+Wire Wire Line
+	4750 5600 3500 5600
+Wire Wire Line
+	3500 5600 3500 4200
+Wire Wire Line
+	3500 4200 7950 4200
+Wire Wire Line
+	7950 4200 7950 2850
+Wire Wire Line
+	8700 2850 8700 4350
+Wire Wire Line
+	8700 4350 3600 4350
+Wire Wire Line
+	3600 4350 3600 5500
+Wire Wire Line
+	3600 5500 4750 5500
+Wire Wire Line
+	4750 5400 3700 5400
+Wire Wire Line
+	3700 5400 3700 4450
+Wire Wire Line
+	3700 4450 9400 4450
+Wire Wire Line
+	9400 4450 9400 2850
+Wire Wire Line
+	10150 2850 10150 4550
+Wire Wire Line
+	10150 4550 3800 4550
+Wire Wire Line
+	3800 4550 3800 5300
+Wire Wire Line
+	3800 5300 4750 5300
+Wire Wire Line
+	1750 2000 1750 1100
+Wire Wire Line
+	1750 1100 1050 1100
+Wire Wire Line
+	750  1100 750  850 
+Wire Wire Line
+	1750 1100 2500 1100
+Wire Wire Line
+	2500 1100 2500 2000
+Connection ~ 1750 1100
+Wire Wire Line
+	2500 1100 3200 1100
+Wire Wire Line
+	3200 1100 3200 2000
+Connection ~ 2500 1100
+Wire Wire Line
+	3950 2000 3950 1100
+Wire Wire Line
+	3950 1100 3200 1100
+Connection ~ 3200 1100
+Wire Wire Line
+	3950 1100 4700 1100
+Wire Wire Line
+	4700 1100 4700 2000
+Connection ~ 3950 1100
+Wire Wire Line
+	5450 2000 5450 1100
+Wire Wire Line
+	5450 1100 4700 1100
+Connection ~ 4700 1100
+Wire Wire Line
+	6150 2000 6150 1100
+Wire Wire Line
+	6150 1100 5450 1100
+Connection ~ 5450 1100
+Wire Wire Line
+	6900 2000 6900 1100
+Wire Wire Line
+	6900 1100 6150 1100
+Connection ~ 6150 1100
+Wire Wire Line
+	7650 2000 7650 1100
+Wire Wire Line
+	7650 1100 6900 1100
+Connection ~ 6900 1100
+Wire Wire Line
+	7650 1100 8400 1100
+Wire Wire Line
+	8400 1100 8400 2000
+Connection ~ 7650 1100
+Wire Wire Line
+	9100 2000 9100 1100
+Wire Wire Line
+	9100 1100 8400 1100
+Connection ~ 8400 1100
+Wire Wire Line
+	9100 1100 9850 1100
+Wire Wire Line
+	9850 1100 9850 2000
+Connection ~ 9100 1100
+Wire Wire Line
+	10600 850  750  850 
+Connection ~ 750  850 
+Wire Wire Line
+	750  850  750  800 
+Wire Wire Line
+	10600 1050 10600 6400
+Wire Wire Line
+	10600 6400 6600 6400
+Wire Wire Line
+	6600 6400 6600 7000
+Wire Wire Line
+	6600 7000 4200 7000
+Wire Wire Line
+	850  3100 850  7000
+Connection ~ 850  7000
+Wire Wire Line
+	850  7000 850  7350
+Wire Wire Line
+	1050 1100 1050 5900
+Wire Wire Line
+	1050 5900 4750 5900
+Connection ~ 1050 1100
+Wire Wire Line
+	1050 1100 750  1100
+Wire Wire Line
+	6150 5900 6600 5900
+Wire Wire Line
+	6600 5900 6600 6400
+Connection ~ 6600 6400
+Wire Wire Line
+	4750 6100 4200 6100
+Wire Wire Line
+	4200 6100 4200 7000
+Connection ~ 4200 7000
+Wire Wire Line
+	4200 7000 850  7000
+$Comp
+L Connector:Barrel_Jack J0
+U 1 1 5ECF9351
+P 10900 950
+F 0 "J0" V 10911 770 50  0000 R CNN
+F 1 "Barrel_Jack" V 11002 770 50  0001 R CNN
+F 2 "Connector_BarrelJack:BarrelJack_Horizontal" H 10950 910 50  0001 C CNN
+F 3 "~" H 10950 910 50  0001 C CNN
+	1    10900 950 
+	-1   0    0    1   
+$EndComp
+$EndSCHEMATC

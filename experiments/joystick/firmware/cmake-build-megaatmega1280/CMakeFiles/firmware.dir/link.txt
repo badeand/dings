@@ -1,0 +1,1 @@
+/Users/badeand/.platformio/packages/toolchain-atmelavr/bin/avr-g++   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/firmware.dir/.pio/libdeps/megaatmega1280/LedControl_ID914/src/LedControl.cpp.o CMakeFiles/firmware.dir/src/main.cpp.o  -o firmware 

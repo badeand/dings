@@ -1,0 +1,5 @@
+/Users/badeand/dev/dings/experiments/joystick/firmware/cmake-build-megaatmega1280/CMakeFiles/rebuild_cache.dir
+/Users/badeand/dev/dings/experiments/joystick/firmware/cmake-build-megaatmega1280/CMakeFiles/edit_cache.dir
+/Users/badeand/dev/dings/experiments/joystick/firmware/cmake-build-megaatmega1280/CMakeFiles/Z_DUMMY_TARGET.dir
+/Users/badeand/dev/dings/experiments/joystick/firmware/cmake-build-megaatmega1280/CMakeFiles/Debug.dir
+/Users/badeand/dev/dings/experiments/joystick/firmware/cmake-build-megaatmega1280/CMakeFiles/Production.dir

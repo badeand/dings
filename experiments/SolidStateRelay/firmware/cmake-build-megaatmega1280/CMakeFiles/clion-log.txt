@@ -1,0 +1,4 @@
+"/Users/badeand/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/193.6015.37/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=megaatmega1280 -G "CodeBlocks - Unix Makefiles" /Users/badeand/dev/dings/experiments/SolidStateRelay/firmware
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/badeand/dev/dings/experiments/SolidStateRelay/firmware/cmake-build-megaatmega1280
