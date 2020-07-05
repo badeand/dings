@@ -35,6 +35,7 @@ CMAKE_CODEBLOCKS_MAKE_ARGUMENTS:STRING=-j12
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
+//Build Types reflect PlatformIO Environments
 CMAKE_CONFIGURATION_TYPES:STRING=esp32doit-devkit-v1
 
 //CXX compiler

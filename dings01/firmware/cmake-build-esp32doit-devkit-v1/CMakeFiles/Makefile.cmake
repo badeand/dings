@@ -53,16 +53,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/firmware.dir/DependInfo.cmake"
-  "CMakeFiles/PLATFORMIO_BUILD.dir/DependInfo.cmake"
-  "CMakeFiles/PLATFORMIO_DEVICE_LIST.dir/DependInfo.cmake"
-  "CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/DependInfo.cmake"
-  "CMakeFiles/PLATFORMIO_PROGRAM.dir/DependInfo.cmake"
-  "CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/DependInfo.cmake"
-  "CMakeFiles/PLATFORMIO_UPLOADFS.dir/DependInfo.cmake"
-  "CMakeFiles/PLATFORMIO_TEST.dir/DependInfo.cmake"
-  "CMakeFiles/PLATFORMIO_UPLOAD.dir/DependInfo.cmake"
-  "CMakeFiles/PLATFORMIO_CLEAN.dir/DependInfo.cmake"
-  "CMakeFiles/PLATFORMIO_BUILD_VERBOSE.dir/DependInfo.cmake"
-  "CMakeFiles/PLATFORMIO_MONITOR.dir/DependInfo.cmake"
+  "CMakeFiles/Z_DUMMY_TARGET.dir/DependInfo.cmake"
+  "CMakeFiles/Debug.dir/DependInfo.cmake"
+  "CMakeFiles/Production.dir/DependInfo.cmake"
   )

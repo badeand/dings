@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /Users/badeand/dev/dings/dings01/firmware/cmake-build-esp32do
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"/Users/badeand/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/193.6015.37/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	"/Users/badeand/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/193.6015.37/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,160 +111,43 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named firmware
+# Target rules for targets named Z_DUMMY_TARGET
 
 # Build rule for target.
-firmware: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 firmware
-.PHONY : firmware
+Z_DUMMY_TARGET: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Z_DUMMY_TARGET
+.PHONY : Z_DUMMY_TARGET
 
 # fast build rule for target.
-firmware/fast:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/build
-.PHONY : firmware/fast
+Z_DUMMY_TARGET/fast:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/build
+.PHONY : Z_DUMMY_TARGET/fast
 
 #=============================================================================
-# Target rules for targets named PLATFORMIO_BUILD
+# Target rules for targets named Debug
 
 # Build rule for target.
-PLATFORMIO_BUILD: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PLATFORMIO_BUILD
-.PHONY : PLATFORMIO_BUILD
+Debug: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Debug
+.PHONY : Debug
 
 # fast build rule for target.
-PLATFORMIO_BUILD/fast:
-	$(MAKE) -f CMakeFiles/PLATFORMIO_BUILD.dir/build.make CMakeFiles/PLATFORMIO_BUILD.dir/build
-.PHONY : PLATFORMIO_BUILD/fast
+Debug/fast:
+	$(MAKE) -f CMakeFiles/Debug.dir/build.make CMakeFiles/Debug.dir/build
+.PHONY : Debug/fast
 
 #=============================================================================
-# Target rules for targets named PLATFORMIO_DEVICE_LIST
+# Target rules for targets named Production
 
 # Build rule for target.
-PLATFORMIO_DEVICE_LIST: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PLATFORMIO_DEVICE_LIST
-.PHONY : PLATFORMIO_DEVICE_LIST
+Production: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Production
+.PHONY : Production
 
 # fast build rule for target.
-PLATFORMIO_DEVICE_LIST/fast:
-	$(MAKE) -f CMakeFiles/PLATFORMIO_DEVICE_LIST.dir/build.make CMakeFiles/PLATFORMIO_DEVICE_LIST.dir/build
-.PHONY : PLATFORMIO_DEVICE_LIST/fast
-
-#=============================================================================
-# Target rules for targets named PLATFORMIO_REBUILD_PROJECT_INDEX
-
-# Build rule for target.
-PLATFORMIO_REBUILD_PROJECT_INDEX: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PLATFORMIO_REBUILD_PROJECT_INDEX
-.PHONY : PLATFORMIO_REBUILD_PROJECT_INDEX
-
-# fast build rule for target.
-PLATFORMIO_REBUILD_PROJECT_INDEX/fast:
-	$(MAKE) -f CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/build.make CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/build
-.PHONY : PLATFORMIO_REBUILD_PROJECT_INDEX/fast
-
-#=============================================================================
-# Target rules for targets named PLATFORMIO_PROGRAM
-
-# Build rule for target.
-PLATFORMIO_PROGRAM: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PLATFORMIO_PROGRAM
-.PHONY : PLATFORMIO_PROGRAM
-
-# fast build rule for target.
-PLATFORMIO_PROGRAM/fast:
-	$(MAKE) -f CMakeFiles/PLATFORMIO_PROGRAM.dir/build.make CMakeFiles/PLATFORMIO_PROGRAM.dir/build
-.PHONY : PLATFORMIO_PROGRAM/fast
-
-#=============================================================================
-# Target rules for targets named PLATFORMIO_UPDATE_ALL
-
-# Build rule for target.
-PLATFORMIO_UPDATE_ALL: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PLATFORMIO_UPDATE_ALL
-.PHONY : PLATFORMIO_UPDATE_ALL
-
-# fast build rule for target.
-PLATFORMIO_UPDATE_ALL/fast:
-	$(MAKE) -f CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/build.make CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/build
-.PHONY : PLATFORMIO_UPDATE_ALL/fast
-
-#=============================================================================
-# Target rules for targets named PLATFORMIO_UPLOADFS
-
-# Build rule for target.
-PLATFORMIO_UPLOADFS: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PLATFORMIO_UPLOADFS
-.PHONY : PLATFORMIO_UPLOADFS
-
-# fast build rule for target.
-PLATFORMIO_UPLOADFS/fast:
-	$(MAKE) -f CMakeFiles/PLATFORMIO_UPLOADFS.dir/build.make CMakeFiles/PLATFORMIO_UPLOADFS.dir/build
-.PHONY : PLATFORMIO_UPLOADFS/fast
-
-#=============================================================================
-# Target rules for targets named PLATFORMIO_TEST
-
-# Build rule for target.
-PLATFORMIO_TEST: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PLATFORMIO_TEST
-.PHONY : PLATFORMIO_TEST
-
-# fast build rule for target.
-PLATFORMIO_TEST/fast:
-	$(MAKE) -f CMakeFiles/PLATFORMIO_TEST.dir/build.make CMakeFiles/PLATFORMIO_TEST.dir/build
-.PHONY : PLATFORMIO_TEST/fast
-
-#=============================================================================
-# Target rules for targets named PLATFORMIO_UPLOAD
-
-# Build rule for target.
-PLATFORMIO_UPLOAD: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PLATFORMIO_UPLOAD
-.PHONY : PLATFORMIO_UPLOAD
-
-# fast build rule for target.
-PLATFORMIO_UPLOAD/fast:
-	$(MAKE) -f CMakeFiles/PLATFORMIO_UPLOAD.dir/build.make CMakeFiles/PLATFORMIO_UPLOAD.dir/build
-.PHONY : PLATFORMIO_UPLOAD/fast
-
-#=============================================================================
-# Target rules for targets named PLATFORMIO_CLEAN
-
-# Build rule for target.
-PLATFORMIO_CLEAN: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PLATFORMIO_CLEAN
-.PHONY : PLATFORMIO_CLEAN
-
-# fast build rule for target.
-PLATFORMIO_CLEAN/fast:
-	$(MAKE) -f CMakeFiles/PLATFORMIO_CLEAN.dir/build.make CMakeFiles/PLATFORMIO_CLEAN.dir/build
-.PHONY : PLATFORMIO_CLEAN/fast
-
-#=============================================================================
-# Target rules for targets named PLATFORMIO_BUILD_VERBOSE
-
-# Build rule for target.
-PLATFORMIO_BUILD_VERBOSE: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PLATFORMIO_BUILD_VERBOSE
-.PHONY : PLATFORMIO_BUILD_VERBOSE
-
-# fast build rule for target.
-PLATFORMIO_BUILD_VERBOSE/fast:
-	$(MAKE) -f CMakeFiles/PLATFORMIO_BUILD_VERBOSE.dir/build.make CMakeFiles/PLATFORMIO_BUILD_VERBOSE.dir/build
-.PHONY : PLATFORMIO_BUILD_VERBOSE/fast
-
-#=============================================================================
-# Target rules for targets named PLATFORMIO_MONITOR
-
-# Build rule for target.
-PLATFORMIO_MONITOR: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PLATFORMIO_MONITOR
-.PHONY : PLATFORMIO_MONITOR
-
-# fast build rule for target.
-PLATFORMIO_MONITOR/fast:
-	$(MAKE) -f CMakeFiles/PLATFORMIO_MONITOR.dir/build.make CMakeFiles/PLATFORMIO_MONITOR.dir/build
-.PHONY : PLATFORMIO_MONITOR/fast
+Production/fast:
+	$(MAKE) -f CMakeFiles/Production.dir/build.make CMakeFiles/Production.dir/build
+.PHONY : Production/fast
 
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.o: .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.cpp.o
 
@@ -272,7 +155,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to build an object file
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.cpp.o:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.cpp.o
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.cpp.o
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.cpp.o
 
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.i: .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.cpp.i
@@ -281,7 +164,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to preprocess a source file
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.cpp.i:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.cpp.i
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.cpp.i
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.cpp.i
 
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.s: .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.cpp.s
@@ -290,7 +173,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to generate assembly for a file
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.cpp.s:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.cpp.s
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.cpp.s
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.cpp.s
 
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_I2CDevice.o: .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_I2CDevice.cpp.o
@@ -299,7 +182,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to build an object file
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_I2CDevice.cpp.o:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_I2CDevice.cpp.o
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_I2CDevice.cpp.o
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_I2CDevice.cpp.o
 
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_I2CDevice.i: .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_I2CDevice.cpp.i
@@ -308,7 +191,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to preprocess a source file
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_I2CDevice.cpp.i:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_I2CDevice.cpp.i
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_I2CDevice.cpp.i
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_I2CDevice.cpp.i
 
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_I2CDevice.s: .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_I2CDevice.cpp.s
@@ -317,7 +200,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to generate assembly for a file
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_I2CDevice.cpp.s:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_I2CDevice.cpp.s
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_I2CDevice.cpp.s
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_I2CDevice.cpp.s
 
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_SPIDevice.o: .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_SPIDevice.cpp.o
@@ -326,7 +209,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to build an object file
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_SPIDevice.cpp.o:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_SPIDevice.cpp.o
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_SPIDevice.cpp.o
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_SPIDevice.cpp.o
 
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_SPIDevice.i: .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_SPIDevice.cpp.i
@@ -335,7 +218,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to preprocess a source file
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_SPIDevice.cpp.i:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_SPIDevice.cpp.i
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_SPIDevice.cpp.i
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_SPIDevice.cpp.i
 
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_SPIDevice.s: .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_SPIDevice.cpp.s
@@ -344,7 +227,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to generate assembly for a file
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_SPIDevice.cpp.s:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_SPIDevice.cpp.s
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_SPIDevice.cpp.s
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_SPIDevice.cpp.s
 
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_LIS3MDL_ID6931/Adafruit_LIS3MDL.o: .pio/libdeps/esp32doit-devkit-v1/Adafruit_LIS3MDL_ID6931/Adafruit_LIS3MDL.cpp.o
@@ -353,7 +236,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to build an object file
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_LIS3MDL_ID6931/Adafruit_LIS3MDL.cpp.o:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_LIS3MDL_ID6931/Adafruit_LIS3MDL.cpp.o
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_LIS3MDL_ID6931/Adafruit_LIS3MDL.cpp.o
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_LIS3MDL_ID6931/Adafruit_LIS3MDL.cpp.o
 
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_LIS3MDL_ID6931/Adafruit_LIS3MDL.i: .pio/libdeps/esp32doit-devkit-v1/Adafruit_LIS3MDL_ID6931/Adafruit_LIS3MDL.cpp.i
@@ -362,7 +245,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to preprocess a source file
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_LIS3MDL_ID6931/Adafruit_LIS3MDL.cpp.i:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_LIS3MDL_ID6931/Adafruit_LIS3MDL.cpp.i
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_LIS3MDL_ID6931/Adafruit_LIS3MDL.cpp.i
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_LIS3MDL_ID6931/Adafruit_LIS3MDL.cpp.i
 
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_LIS3MDL_ID6931/Adafruit_LIS3MDL.s: .pio/libdeps/esp32doit-devkit-v1/Adafruit_LIS3MDL_ID6931/Adafruit_LIS3MDL.cpp.s
@@ -371,7 +254,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to generate assembly for a file
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_LIS3MDL_ID6931/Adafruit_LIS3MDL.cpp.s:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_LIS3MDL_ID6931/Adafruit_LIS3MDL.cpp.s
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_LIS3MDL_ID6931/Adafruit_LIS3MDL.cpp.s
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_LIS3MDL_ID6931/Adafruit_LIS3MDL.cpp.s
 
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.o: .pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.cpp.o
@@ -380,7 +263,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to build an object file
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.cpp.o:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.cpp.o
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.cpp.o
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.cpp.o
 
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.i: .pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.cpp.i
@@ -389,7 +272,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to preprocess a source file
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.cpp.i:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.cpp.i
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.cpp.i
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.cpp.i
 
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.s: .pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.cpp.s
@@ -398,8 +281,89 @@ PLATFORMIO_MONITOR/fast:
 
 # target to generate assembly for a file
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.cpp.s:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.cpp.s
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.cpp.s
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.cpp.s
+
+.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.o: .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.cpp.o
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.o
+
+# target to build an object file
+.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.cpp.o:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.cpp.o
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.cpp.o
+
+.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.i: .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.cpp.i
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.i
+
+# target to preprocess a source file
+.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.cpp.i:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.cpp.i
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.cpp.i
+
+.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.s: .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.cpp.s
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.s
+
+# target to generate assembly for a file
+.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.cpp.s:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.cpp.s
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.cpp.s
+
+.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.o: .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.c.o
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.o
+
+# target to build an object file
+.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.c.o:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.c.o
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.c.o
+
+.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.i: .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.c.i
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.i
+
+# target to preprocess a source file
+.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.c.i:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.c.i
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.c.i
+
+.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.s: .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.c.s
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.s
+
+# target to generate assembly for a file
+.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.c.s:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.c.s
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.c.s
+
+.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.o: .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.cpp.o
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.o
+
+# target to build an object file
+.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.cpp.o:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.cpp.o
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.cpp.o
+
+.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.i: .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.cpp.i
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.i
+
+# target to preprocess a source file
+.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.cpp.i:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.cpp.i
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.cpp.i
+
+.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.s: .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.cpp.s
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.s
+
+# target to generate assembly for a file
+.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.cpp.s:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.cpp.s
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.cpp.s
 
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.o: .pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.cpp.o
 
@@ -407,7 +371,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to build an object file
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.cpp.o:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.cpp.o
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.cpp.o
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.cpp.o
 
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.i: .pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.cpp.i
@@ -416,7 +380,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to preprocess a source file
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.cpp.i:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.cpp.i
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.cpp.i
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.cpp.i
 
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.s: .pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.cpp.s
@@ -425,7 +389,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to generate assembly for a file
 .pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.cpp.s:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.cpp.s
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.cpp.s
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.cpp.s
 
 .pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.o: .pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.cpp.o
@@ -434,7 +398,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to build an object file
 .pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.cpp.o
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.cpp.o
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.cpp.o
 
 .pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.i: .pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.cpp.i
@@ -443,7 +407,7 @@ PLATFORMIO_MONITOR/fast:
 
 # target to preprocess a source file
 .pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.cpp.i
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.cpp.i
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.cpp.i
 
 .pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.s: .pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.cpp.s
@@ -452,8 +416,278 @@ PLATFORMIO_MONITOR/fast:
 
 # target to generate assembly for a file
 .pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/.pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.cpp.s
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.cpp.s
 .PHONY : .pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.cpp.s
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.o: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.cpp.o
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.o
+
+# target to build an object file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.cpp.o:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.cpp.o
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.cpp.o
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.i: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.cpp.i
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.i
+
+# target to preprocess a source file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.cpp.i:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.cpp.i
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.cpp.i
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.s: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.cpp.s
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.s
+
+# target to generate assembly for a file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.cpp.s:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.cpp.s
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.cpp.s
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.o: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.cpp.o
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.o
+
+# target to build an object file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.cpp.o:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.cpp.o
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.cpp.o
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.i: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.cpp.i
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.i
+
+# target to preprocess a source file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.cpp.i:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.cpp.i
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.cpp.i
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.s: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.cpp.s
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.s
+
+# target to generate assembly for a file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.cpp.s:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.cpp.s
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.cpp.s
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.o: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.cpp.o
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.o
+
+# target to build an object file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.cpp.o:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.cpp.o
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.cpp.o
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.i: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.cpp.i
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.i
+
+# target to preprocess a source file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.cpp.i:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.cpp.i
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.cpp.i
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.s: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.cpp.s
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.s
+
+# target to generate assembly for a file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.cpp.s:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.cpp.s
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.cpp.s
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.o: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.cpp.o
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.o
+
+# target to build an object file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.cpp.o:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.cpp.o
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.cpp.o
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.i: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.cpp.i
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.i
+
+# target to preprocess a source file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.cpp.i:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.cpp.i
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.cpp.i
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.s: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.cpp.s
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.s
+
+# target to generate assembly for a file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.cpp.s:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.cpp.s
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.cpp.s
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.o: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.cpp.o
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.o
+
+# target to build an object file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.cpp.o:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.cpp.o
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.cpp.o
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.i: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.cpp.i
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.i
+
+# target to preprocess a source file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.cpp.i:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.cpp.i
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.cpp.i
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.s: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.cpp.s
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.s
+
+# target to generate assembly for a file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.cpp.s:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.cpp.s
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.cpp.s
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.o: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.cpp.o
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.o
+
+# target to build an object file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.cpp.o:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.cpp.o
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.cpp.o
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.i: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.cpp.i
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.i
+
+# target to preprocess a source file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.cpp.i:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.cpp.i
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.cpp.i
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.s: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.cpp.s
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.s
+
+# target to generate assembly for a file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.cpp.s:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.cpp.s
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.cpp.s
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.o: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.cpp.o
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.o
+
+# target to build an object file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.cpp.o:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.cpp.o
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.cpp.o
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.i: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.cpp.i
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.i
+
+# target to preprocess a source file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.cpp.i:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.cpp.i
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.cpp.i
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.s: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.cpp.s
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.s
+
+# target to generate assembly for a file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.cpp.s:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.cpp.s
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.cpp.s
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.o: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.cpp.o
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.o
+
+# target to build an object file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.cpp.o:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.cpp.o
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.cpp.o
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.i: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.cpp.i
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.i
+
+# target to preprocess a source file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.cpp.i:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.cpp.i
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.cpp.i
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.s: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.cpp.s
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.s
+
+# target to generate assembly for a file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.cpp.s:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.cpp.s
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.cpp.s
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.o: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.cpp.o
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.o
+
+# target to build an object file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.cpp.o:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.cpp.o
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.cpp.o
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.i: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.cpp.i
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.i
+
+# target to preprocess a source file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.cpp.i:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.cpp.i
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.cpp.i
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.s: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.cpp.s
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.s
+
+# target to generate assembly for a file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.cpp.s:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.cpp.s
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.cpp.s
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.o: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.cpp.o
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.o
+
+# target to build an object file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.cpp.o:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.cpp.o
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.cpp.o
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.i: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.cpp.i
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.i
+
+# target to preprocess a source file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.cpp.i:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.cpp.i
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.cpp.i
+
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.s: .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.cpp.s
+
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.s
+
+# target to generate assembly for a file
+.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.cpp.s:
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.cpp.s
+.PHONY : .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -461,7 +695,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/src/main.cpp.o
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -470,7 +704,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/src/main.cpp.i
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -479,7 +713,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/firmware.dir/build.make CMakeFiles/firmware.dir/src/main.cpp.s
+	$(MAKE) -f CMakeFiles/Z_DUMMY_TARGET.dir/build.make CMakeFiles/Z_DUMMY_TARGET.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -488,20 +722,11 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
-	@echo "... firmware"
 	@echo "... rebuild_cache"
-	@echo "... PLATFORMIO_BUILD"
-	@echo "... PLATFORMIO_DEVICE_LIST"
-	@echo "... PLATFORMIO_REBUILD_PROJECT_INDEX"
-	@echo "... PLATFORMIO_PROGRAM"
-	@echo "... PLATFORMIO_UPDATE_ALL"
-	@echo "... PLATFORMIO_UPLOADFS"
-	@echo "... PLATFORMIO_TEST"
-	@echo "... PLATFORMIO_UPLOAD"
-	@echo "... PLATFORMIO_CLEAN"
-	@echo "... PLATFORMIO_BUILD_VERBOSE"
-	@echo "... PLATFORMIO_MONITOR"
+	@echo "... edit_cache"
+	@echo "... Z_DUMMY_TARGET"
+	@echo "... Debug"
+	@echo "... Production"
 	@echo "... .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.o"
 	@echo "... .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.i"
 	@echo "... .pio/libdeps/esp32doit-devkit-v1/Adafruit_BusIO_ID6214/Adafruit_BusIO_Register.s"
@@ -517,12 +742,51 @@ help:
 	@echo "... .pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.o"
 	@echo "... .pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.i"
 	@echo "... .pio/libdeps/esp32doit-devkit-v1/Adafruit_LSM9DS1_Library_ID4175/Adafruit_LSM9DS1.s"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.o"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.i"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/Adafruit_NeoPixel.s"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.o"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.i"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/esp8266.s"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.o"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.i"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/Adafruit_NeoPixel_ID28/examples/StrandtestBLE/BLESerial.s"
 	@echo "... .pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.o"
 	@echo "... .pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.i"
 	@echo "... .pio/libdeps/esp32doit-devkit-v1/Adafruit_Unified_Sensor_ID31/Adafruit_Sensor.s"
 	@echo "... .pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.o"
 	@echo "... .pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.i"
 	@echo "... .pio/libdeps/esp32doit-devkit-v1/ArduinoOSC_ID1896/examples/apps_to_talk_with_arduino/for_wifi_and_ethernet/oF/src/main.s"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.o"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.i"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/FastLED.s"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.o"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.i"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/bitswap.s"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.o"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.i"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorpalettes.s"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.o"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.i"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/colorutils.s"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.o"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.i"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/hsv2rgb.s"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.o"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.i"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/lib8tion.s"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.o"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.i"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/noise.s"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.o"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.i"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/platforms.s"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.o"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.i"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/power_mgt.s"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.o"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.i"
+	@echo "... .pio/libdeps/esp32doit-devkit-v1/FastLED_ID126/wiring.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

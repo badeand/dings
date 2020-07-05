@@ -1,11 +1,15 @@
 #include <ArduinoOSC.h>
 
+#include <FastLED.h>
 #include <ESPmDNS.h>
 #include <Wire.h>
 #include <SPI.h>
 #include <Adafruit_LSM9DS1.h>
 #include <Adafruit_Sensor.h>  // not used in this demo but required!
 #include <Preferences.h>
+
+#include <neopixels.h>
+
 
 extern "C" {
 #include "crypto/base64.h"
@@ -25,9 +29,12 @@ String base64decode(const String &name);
 
 void configMode(const String &ssid);
 
+void initNeopixels();
+
+void startupSignal();
+
 const int recv_port = 10000;
 const int send_port = 12000;
-
 
 void initGyro() {
 
@@ -47,73 +54,97 @@ void initGyro() {
 }
 
 
-void onOscReceived(OscMessage& m)
-{
+void onOscReceived(OscMessage &m) {
     Serial.print("callback : ");
-    Serial.print(m.ip()); Serial.print(" ");
-    Serial.print(m.port()); Serial.print(" ");
-    Serial.print(m.size()); Serial.print(" ");
-    Serial.print(m.address()); Serial.print(" ");
-    Serial.print(m.arg<int>(0)); Serial.print(" ");
-    Serial.print(m.arg<float>(1)); Serial.print(" ");
-    Serial.print(m.arg<String>(2)); Serial.println();
+    Serial.print(m.ip());
+    Serial.print(" ");
+    Serial.print(m.port());
+    Serial.print(" ");
+    Serial.print(m.size());
+    Serial.print(" ");
+    Serial.print(m.address());
+    Serial.print(" ");
+    Serial.print(m.arg<int>(0));
+    Serial.print(" ");
+    Serial.print(m.arg<float>(1));
+    Serial.print(" ");
+    Serial.print(m.arg<String>(2));
+    Serial.println();
 }
 
-void setup()
-{
+void setup() {
+    initNeopixels();
+
+    startupSignal();
+    setupStepOK(0);
+
     Serial.begin(115200);
-    setupWIFI();
+    setupStepOK(1);
+
 
     Wire.begin(32, 33);
+    setupStepOK(2);
+
+    setupWIFI();
+    setupStepOK(3);
 
     initGyro();
 
     osc.begin(recv_port);
 
-    osc.subscribe("/lambda", [](OscMessage& m)
-    {
+    osc.subscribe("/lambda", [](OscMessage &m) {
         Serial.print("lambda : ");
-        Serial.print(m.ip()); Serial.print(" ");
-        Serial.print(m.port()); Serial.print(" ");
-        Serial.print(m.size()); Serial.print(" ");
-        Serial.print(m.address()); Serial.print(" ");
-        Serial.print(m.arg<int>(0)); Serial.print(" ");
-        Serial.print(m.arg<float>(1)); Serial.print(" ");
-        Serial.print(m.arg<String>(2)); Serial.println();
+        Serial.print(m.ip());
+        Serial.print(" ");
+        Serial.print(m.port());
+        Serial.print(" ");
+        Serial.print(m.size());
+        Serial.print(" ");
+        Serial.print(m.address());
+        Serial.print(" ");
+        Serial.print(m.arg<int>(0));
+        Serial.print(" ");
+        Serial.print(m.arg<float>(1));
+        Serial.print(" ");
+        Serial.print(m.arg<String>(2));
+        Serial.println();
     });
-    osc.subscribe("/wildcard/*/test", [](OscMessage& m)
-    {
+    osc.subscribe("/wildcard/*/test", [](OscMessage &m) {
         Serial.print("wildcard : ");
-        Serial.print(m.ip()); Serial.print(" ");
-        Serial.print(m.port()); Serial.print(" ");
-        Serial.print(m.size()); Serial.print(" ");
-        Serial.print(m.address()); Serial.print(" ");
-        Serial.print(m.arg<int>(0)); Serial.println();
+        Serial.print(m.ip());
+        Serial.print(" ");
+        Serial.print(m.port());
+        Serial.print(" ");
+        Serial.print(m.size());
+        Serial.print(" ");
+        Serial.print(m.address());
+        Serial.print(" ");
+        Serial.print(m.arg<int>(0));
+        Serial.println();
 
     });
-    osc.subscribe("/sethost", [](OscMessage& m)
-    {
-        Serial.print(m.address()); Serial.print(" ");
-        Serial.print("new host:"); Serial.print(" ");
-        Serial.print(m.ip()); Serial.print(" ");
+    osc.subscribe("/sethost", [](OscMessage &m) {
+        Serial.print(m.address());
+        Serial.print(" ");
+        Serial.print("new host:");
+        Serial.print(" ");
+        Serial.print(m.ip());
+        Serial.print(" ");
         Serial.println();
 
         host = m.ip();
     });
-    osc.subscribe("/resetconfig", [](OscMessage& m)
-    {
+    osc.subscribe("/resetconfig", [](OscMessage &m) {
         preferences.begin("dings01", false);
         preferences.clear();
         preferences.end();
         Serial.println("Configuration reset");
     });
-    osc.subscribe("/restart", [](OscMessage& m)
-    {
+    osc.subscribe("/restart", [](OscMessage &m) {
         Serial.println("Restarting..");
         ESP.restart();
     });
-    osc.subscribe("/need/reply", [](OscMessage& m)
-    {
+    osc.subscribe("/need/reply", [](OscMessage &m) {
         Serial.println("/need/reply");
 
         int i = 12;
@@ -123,8 +154,10 @@ void setup()
         bool b = true;
 
 
-        Serial.print("host: "); Serial.print(" ");
-        Serial.print(host); Serial.print(" ");
+        Serial.print("host: ");
+        Serial.print(" ");
+        Serial.print(host);
+        Serial.print(" ");
         Serial.println();
 
         osc.send(host, send_port, "/send", i, f, d, s, b);
@@ -135,83 +168,132 @@ void setup()
 
 void setupWIFI() {
 
+    wifiSetupStep(0);
     delay(1000);
+    wifiSetupStep(1);
 
     preferences.begin("dings01", false);
     String name = preferences.getString("name", String("not set"));
     String ssid = preferences.getString("ssid", String("not set"));
     String pwd = preferences.getString("pwd", String("not set"));
     preferences.end();
+    wifiSetupStep(2);
 
-    Serial.print("name="); Serial.print(name); Serial.print(" , ");
-    Serial.print("ssid="); Serial.print(ssid); Serial.print(" , ");
-    Serial.print("pwd="); Serial.print("******"); Serial.print(" , ");
-    Serial.print("rport=");Serial.print(preferences.getInt("rport", -1)); Serial.print(" , ");
-    Serial.print("sport=");Serial.print(preferences.getInt("sport", -1)); Serial.print(" , ");
+    Serial.print("pwd=");
+    Serial.print(pwd);
 
-    Serial.print("Connecting to WiFi. ssid="); Serial.println(ssid);
 
-    WiFi.begin(
-            ssid.c_str(),
-            pwd.c_str()
-            );
+
+    Serial.print("name=");
+    Serial.print(name);
+    Serial.print(" , ");
+    Serial.print("ssid=");
+    Serial.print(ssid);
+    Serial.print(" , ");
+    Serial.print("pwd=");
+    Serial.print(pwd);
+    Serial.print(" , ");
+    Serial.print("rport=");
+    Serial.print(preferences.getInt("rport", -1));
+    Serial.print(" , ");
+    Serial.print("sport=");
+    Serial.print(preferences.getInt("sport", -1));
+    Serial.print(" , ");
+
+    Serial.print("Connecting to WiFi. ssid=");
+    Serial.println(ssid);
+
+    if (pwd == "none") {
+        Serial.println("Using no password");
+        WiFi.begin(
+                ssid.c_str(), ""
+        );
+    } else {
+        WiFi.begin(
+                ssid.c_str(),
+                pwd.c_str()
+        );
+    }
+
+
     // WiFi.config(ip, gateway, subnet);
+
+
     int timeout = 0;
     while (WiFi.status() != WL_CONNECTED) {
         Serial.print(".");
-        delay(500);
+        showPixel(3, CRGB::GhostWhite);
+        delay(250);
+        showPixel(3, CRGB::Black);
+        delay(250);
         timeout++;
-        if( timeout > 10) {
+        if (timeout > 10) {
             configMode(ssid);
         }
     }
 
-    Serial.print("Connecting to WiFi. IP="); Serial.println(WiFi.localIP());
+    Serial.print("Connecting to WiFi. IP=");
+    Serial.println(WiFi.localIP());
 
     if (!MDNS.begin(name.c_str())) {
         Serial.println("Unable to set up MSDN");
-        while(1) {
+        while (1) {
             delay(1000);
         }
     }
 
-    Serial.print("MSDN setup OK. name="); Serial.print(name); Serial.println(".local");
+    Serial.print("MSDN setup OK. name=");
+    Serial.print(name);
+    Serial.println(".local");
 }
 
 void configMode(const String &ssid) {
-    Serial.print("Unable to connect to wifi. SSID =");
+
+    allBlack();
+
+    Serial.println();
+    Serial.print("Unable to connect to wifi. SSID=");
     Serial.println(ssid);
     Serial.println("Entering configuration mode");
 
     String apssid = "dings01_" + String(random(999));
-    Serial.println("Setting up AP with SSID="+apssid);
+    Serial.println("Setting up AP with SSID=" + apssid);
+    setupStepOK(0);
+
     WiFi.softAP(apssid.c_str());
     IPAddress IP = WiFi.softAPIP();
     Serial.print("AP IP address: ");
     Serial.println(IP);
+    setupStepOK(1);
 
     Serial.println("AP setup complete");
     osc.begin(recv_port);
+    setupStepOK(2);
+    showPixel(18, CRGB::Blue);
 
-    osc.subscribe("/ping", [](OscMessage& m)
-    {
-        Serial.print(m.ip()); Serial.print(" ");
-        Serial.print(m.port()); Serial.print(" ");
-        Serial.print(m.size()); Serial.print(" ");
-        Serial.print(m.address()); Serial.print(" ");
+    osc.subscribe("/ping", [](OscMessage &m) {
+        Serial.print(m.ip());
+        Serial.print(" ");
+        Serial.print(m.port());
+        Serial.print(" ");
+        Serial.print(m.size());
+        Serial.print(" ");
+        Serial.print(m.address());
+        Serial.print(" ");
         Serial.println();
 
+        showPixel(18, CRGB::Green);
         osc.send(m.ip(), send_port, "/ack");
+        delay(250);
+        showPixel(17, CRGB::Black);
     });
 
-    osc.subscribe("/restart", [](OscMessage& m)
-    {
+    osc.subscribe("/restart", [](OscMessage &m) {
         Serial.println("Restarting..");
         ESP.restart();
     });
 
-    osc.subscribe("/setconfig", [](OscMessage& m)
-    {
+    osc.subscribe("/setconfig", [](OscMessage &m) {
         Serial.print("setconfig : ");
 
         String name = m.arg<String>(0);
@@ -220,11 +302,21 @@ void configMode(const String &ssid) {
         int rport = m.arg<int>(3);
         int sport = m.arg<int>(4);
 
-        Serial.print("name=");Serial.print(name); Serial.print(" , ");
-        Serial.print("ssid=");Serial.print(ssid); Serial.print(" , ");
-        Serial.print("pwd=");Serial.print(pwd); Serial.print(" , ");
-        Serial.print("rport=");Serial.print(rport); Serial.print(" , ");
-        Serial.print("sport=");Serial.print(sport); Serial.print(" , ");
+        Serial.print("name=");
+        Serial.print(name);
+        Serial.print(" , ");
+        Serial.print("ssid=");
+        Serial.print(ssid);
+        Serial.print(" , ");
+        Serial.print("pwd=");
+        Serial.print(pwd);
+        Serial.print(" , ");
+        Serial.print("rport=");
+        Serial.print(rport);
+        Serial.print(" , ");
+        Serial.print("sport=");
+        Serial.print(sport);
+        Serial.print(" , ");
         Serial.println();
 
         preferences.begin("dings01", false);
@@ -236,11 +328,21 @@ void configMode(const String &ssid) {
         preferences.putInt("sport", sport);
 
         Serial.print("Preferences : ");
-        Serial.print("name=");Serial.print(preferences.getString("name", String("not set"))); Serial.print(" , ");
-        Serial.print("ssid=");Serial.print(preferences.getString("ssid", String("not set"))); Serial.print(" , ");
-        Serial.print("pwd=");Serial.print(preferences.getString("pwd", String("not set"))); Serial.print(" , ");
-        Serial.print("rport=");Serial.print(preferences.getInt("rport", -1)); Serial.print(" , ");
-        Serial.print("sport=");Serial.print(preferences.getInt("sport", -1)); Serial.print(" , ");
+        Serial.print("name=");
+        Serial.print(preferences.getString("name", String("not set")));
+        Serial.print(" , ");
+        Serial.print("ssid=");
+        Serial.print(preferences.getString("ssid", String("not set")));
+        Serial.print(" , ");
+        Serial.print("pwd=");
+        Serial.print(preferences.getString("pwd", String("not set")));
+        Serial.print(" , ");
+        Serial.print("rport=");
+        Serial.print(preferences.getInt("rport", -1));
+        Serial.print(" , ");
+        Serial.print("sport=");
+        Serial.print(preferences.getInt("sport", -1));
+        Serial.print(" , ");
         Serial.println();
 
 
@@ -250,25 +352,24 @@ void configMode(const String &ssid) {
     });
 
 
-    while( true) {
+    while (true) {
         delay(10);
         osc.parse(); // should be called
     }
 }
 
 String base64decode(const String &name) {
-    const char * toDecode = name.c_str();
+    const char *toDecode = name.c_str();
 
     size_t outputLength;
-    unsigned char * decoded = base64_decode((const unsigned char *)toDecode, strlen(toDecode), &outputLength);
+    unsigned char *decoded = base64_decode((const unsigned char *) toDecode, strlen(toDecode), &outputLength);
 
-    String tempstring = reinterpret_cast<const char*>(decoded);
+    String tempstring = reinterpret_cast<const char *>(decoded);
     return tempstring;
 }
 
 
-void loop()
-{
+void loop() {
     osc.parse();
 
     lsm.read();  /* ask it to read in the data */
@@ -282,15 +383,15 @@ void loop()
 
 
     osc.send(host, send_port, "/gyro",
-            a.acceleration.x,
-            a.acceleration.y,
-            a.acceleration.z,
-            m.magnetic.x,
-            m.magnetic.y,
-            m.magnetic.z,
-            g.gyro.x,
-            g.gyro.y,
-            g.gyro.z);
+             a.acceleration.x,
+             a.acceleration.y,
+             a.acceleration.z,
+             m.magnetic.x,
+             m.magnetic.y,
+             m.magnetic.z,
+             g.gyro.x,
+             g.gyro.y,
+             g.gyro.z);
 
 }
 
