@@ -53,7 +53,9 @@
 					<Add directory="/Users/badeand/dev/dings/dings01/firmware/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/ESPmDNS/src"/>
+					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/FS/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/Preferences/src"/>
+					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/WebServer/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src"/>
 					<Add directory="/Users/badeand/dev/dings/dings01/firmware/.pio/libdeps/esp32doit-devkit-v1/Adafruit NeoPixel_ID28"/>
 					<Add directory="/Users/badeand/.platformio/lib/PacketSerial_ID1198/src"/>
@@ -66,7 +68,6 @@
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/EEPROM/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/ESP32/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/FFat/src"/>
-					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/FS/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/HTTPClient/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/HTTPUpdate/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/NetBIOS/src"/>
@@ -76,7 +77,6 @@
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/SimpleBLE/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/Ticker/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/Update/src"/>
-					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/WebServer/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/WiFiClientSecure/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/toolchain-xtensa32/xtensa-esp32-elf/include/c++/5.2.0"/>
 					<Add directory="/Users/badeand/.platformio/packages/toolchain-xtensa32/xtensa-esp32-elf/include/c++/5.2.0/xtensa-esp32-elf"/>
@@ -174,7 +174,9 @@
 					<Add directory="/Users/badeand/dev/dings/dings01/firmware/.pio/libdeps/esp32doit-devkit-v1/FastLED_ID126"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/ESPmDNS/src"/>
+					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/FS/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/Preferences/src"/>
+					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/WebServer/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src"/>
 					<Add directory="/Users/badeand/dev/dings/dings01/firmware/.pio/libdeps/esp32doit-devkit-v1/Adafruit NeoPixel_ID28"/>
 					<Add directory="/Users/badeand/.platformio/lib/PacketSerial_ID1198/src"/>
@@ -187,7 +189,6 @@
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/EEPROM/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/ESP32/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/FFat/src"/>
-					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/FS/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/HTTPClient/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/HTTPUpdate/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/NetBIOS/src"/>
@@ -197,7 +198,6 @@
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/SimpleBLE/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/Ticker/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/Update/src"/>
-					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/WebServer/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/framework-arduinoespressif32/libraries/WiFiClientSecure/src"/>
 					<Add directory="/Users/badeand/.platformio/packages/toolchain-xtensa32/xtensa-esp32-elf/include/c++/5.2.0"/>
 					<Add directory="/Users/badeand/.platformio/packages/toolchain-xtensa32/xtensa-esp32-elf/include/c++/5.2.0/xtensa-esp32-elf"/>
@@ -1123,6 +1123,9 @@
 			<Option target="Z_DUMMY_TARGET"/>
 		</Unit>
 		<Unit filename="/Users/badeand/dev/dings/dings01/firmware/src/neopixels.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="/Users/badeand/dev/dings/dings01/firmware/src/wificonfigmode.h">
 			<Option target="Z_DUMMY_TARGET"/>
 		</Unit>
 		<Unit filename="/Users/badeand/dev/dings/dings01/firmware/CMakeLists.txt">

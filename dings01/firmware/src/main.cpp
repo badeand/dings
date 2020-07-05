@@ -7,8 +7,9 @@
 #include <Adafruit_LSM9DS1.h>
 #include <Adafruit_Sensor.h>  // not used in this demo but required!
 #include <Preferences.h>
-
 #include <neopixels.h>
+#include <wificonfigmode.h>
+
 
 
 extern "C" {
@@ -182,8 +183,6 @@ void setupWIFI() {
     Serial.print("pwd=");
     Serial.print(pwd);
 
-
-
     Serial.print("name=");
     Serial.print(name);
     Serial.print(" , ");
@@ -228,7 +227,8 @@ void setupWIFI() {
         delay(250);
         timeout++;
         if (timeout > 10) {
-            configMode(ssid);
+            Serial.println("Unable to connect to network (SSID="+ssid+").");
+            serve();
         }
     }
 
@@ -247,126 +247,6 @@ void setupWIFI() {
     Serial.println(".local");
 }
 
-void configMode(const String &ssid) {
-
-    allBlack();
-
-    Serial.println();
-    Serial.print("Unable to connect to wifi. SSID=");
-    Serial.println(ssid);
-    Serial.println("Entering configuration mode");
-
-    String apssid = "dings01_" + String(random(999));
-    Serial.println("Setting up AP with SSID=" + apssid);
-    setupStepOK(0);
-
-    WiFi.softAP(apssid.c_str());
-    IPAddress IP = WiFi.softAPIP();
-    Serial.print("AP IP address: ");
-    Serial.println(IP);
-    setupStepOK(1);
-
-    Serial.println("AP setup complete");
-    osc.begin(recv_port);
-    setupStepOK(2);
-    showPixel(18, CRGB::Blue);
-
-    osc.subscribe("/ping", [](OscMessage &m) {
-        Serial.print(m.ip());
-        Serial.print(" ");
-        Serial.print(m.port());
-        Serial.print(" ");
-        Serial.print(m.size());
-        Serial.print(" ");
-        Serial.print(m.address());
-        Serial.print(" ");
-        Serial.println();
-
-        showPixel(18, CRGB::Green);
-        osc.send(m.ip(), send_port, "/ack");
-        delay(250);
-        showPixel(17, CRGB::Black);
-    });
-
-    osc.subscribe("/restart", [](OscMessage &m) {
-        Serial.println("Restarting..");
-        ESP.restart();
-    });
-
-    osc.subscribe("/setconfig", [](OscMessage &m) {
-        Serial.print("setconfig : ");
-
-        String name = m.arg<String>(0);
-        String ssid = m.arg<String>(1);
-        String pwd = m.arg<String>(2);
-        int rport = m.arg<int>(3);
-        int sport = m.arg<int>(4);
-
-        Serial.print("name=");
-        Serial.print(name);
-        Serial.print(" , ");
-        Serial.print("ssid=");
-        Serial.print(ssid);
-        Serial.print(" , ");
-        Serial.print("pwd=");
-        Serial.print(pwd);
-        Serial.print(" , ");
-        Serial.print("rport=");
-        Serial.print(rport);
-        Serial.print(" , ");
-        Serial.print("sport=");
-        Serial.print(sport);
-        Serial.print(" , ");
-        Serial.println();
-
-        preferences.begin("dings01", false);
-        preferences.clear();
-        preferences.putString("name", base64decode(name));
-        preferences.putString("ssid", base64decode(ssid));
-        preferences.putString("pwd", base64decode(pwd));
-        preferences.putInt("rport", rport);
-        preferences.putInt("sport", sport);
-
-        Serial.print("Preferences : ");
-        Serial.print("name=");
-        Serial.print(preferences.getString("name", String("not set")));
-        Serial.print(" , ");
-        Serial.print("ssid=");
-        Serial.print(preferences.getString("ssid", String("not set")));
-        Serial.print(" , ");
-        Serial.print("pwd=");
-        Serial.print(preferences.getString("pwd", String("not set")));
-        Serial.print(" , ");
-        Serial.print("rport=");
-        Serial.print(preferences.getInt("rport", -1));
-        Serial.print(" , ");
-        Serial.print("sport=");
-        Serial.print(preferences.getInt("sport", -1));
-        Serial.print(" , ");
-        Serial.println();
-
-
-        preferences.end();
-
-        osc.send(m.ip(), send_port, "/setconfigerr", 0);
-    });
-
-
-    while (true) {
-        delay(10);
-        osc.parse(); // should be called
-    }
-}
-
-String base64decode(const String &name) {
-    const char *toDecode = name.c_str();
-
-    size_t outputLength;
-    unsigned char *decoded = base64_decode((const unsigned char *) toDecode, strlen(toDecode), &outputLength);
-
-    String tempstring = reinterpret_cast<const char *>(decoded);
-    return tempstring;
-}
 
 
 void loop() {
